@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const bcrypt = require('bcrypt');
 const checkAuth = require('../../utils/auth')
 
 router.get('/', (req, res) => {
