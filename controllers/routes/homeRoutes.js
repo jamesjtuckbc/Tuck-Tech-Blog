@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const checkAuth = require('../../utils/auth')
+const checkAuth = require('../../utils/auth');
+const { Userlog } = require('../../models');
 
 router.get('/', (req, res) => {
     try {
@@ -45,8 +46,15 @@ router.get('/signup', (req, res) => {
     }
 });
 
-router.get('/logout', (req, res) => {
+router.get('/logout', async (req, res) => {
     if (req.session.logged_in) {
+        await Userlog.update({
+            logout_date: Date.now()
+        }, {
+            where: {
+                id: req.session.log_id,
+            },
+        });
         req.session.destroy(() => {
             res.redirect('/');
         });

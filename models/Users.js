@@ -21,6 +21,8 @@ Users.init(
         },
         last_login: {
             type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
         },
         date_created: {
             type: DataTypes.DATE,

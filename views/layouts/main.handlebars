@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
-                <img src="/assets/tech_blog_logo.png" alt="Tuck's Tech Blog Logo" class="d-inline-block align-center">
+                <img id="logo-img" src="/assets/tech_blog_logo.png" alt="Tuck's Tech Blog Logo" class="d-inline-block align-center">
                 Tuck's Tech Blog
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -31,7 +31,7 @@
                     </li>
                     {{#unless login}}
                     <li class="nav-item">
-                        <a class="nav-link" {{#unless home}} {{#unless dashboard}} aria-current="page" {{/unless}} {{/unless}} href="/login">Login</a>
+                        <a class="nav-link" {{#unless home}} {{#unless dashboard}} aria-current="page" {{/unless}} {{/unless}} href="/login">Login/Signup</a>
                     </li>
                     {{/unless}}
                     {{#if login}}

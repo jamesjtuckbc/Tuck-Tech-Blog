@@ -8,7 +8,8 @@ const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create();
+// const hbs = exphbs.create({ helpers });
 const sess = {
   secret: process.env.secret,
   cookie: {},
@@ -27,6 +28,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log(`Now listening at: http://localhost:${PORT}`));
 });
