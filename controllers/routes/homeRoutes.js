@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const checkAuth = require('../../utils/auth');
+const getPosts = require('./api/getPosts')
 const { Userlog } = require('../../models');
 
 router.get('/', (req, res) => {
@@ -13,12 +14,14 @@ router.get('/', (req, res) => {
     }
 });
 
-router.get('/dashboard', checkAuth, (req, res) => {
+router.get('/dashboard', checkAuth, async (req, res) => {
     try {
         const login = req.session.logged_in;
         const home = false;
         const dashboard = true;
-        res.render('dashboard', { login, home, dashboard });
+        const posts = await getPosts(req.session.user_id);
+        const mappedPosts = posts.map((post) => post.get({ plain: true}));
+        res.render('dashboard', { login, home, dashboard, mappedPosts });
     } catch (err) {
         res.status(500).json(err);
     }

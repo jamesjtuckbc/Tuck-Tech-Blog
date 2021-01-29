@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "user_id": 1,
+        "post_id": 1,
+        "content": "This is test content from a seed file. this is not a real comment."
+    },
+    {
+        "id": 2,
+        "user_id": 1,
+        "post_id": 1,
+        "content": "This is test content from a seed file. this is not a real comment. but this the second one"
+    },
+    {
+        "id": 3,
+        "user_id": 1,
+        "post_id": 1,
+        "content": "This is test content from a seed file. this is not a real comment. man run on sentences, am i right?"
+    }
+]

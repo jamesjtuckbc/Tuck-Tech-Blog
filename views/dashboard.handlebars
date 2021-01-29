@@ -1,3 +1,31 @@
 <link rel="stylesheet" href="/css/dashboard.css">
 
+<div class="container-fluid">
+
+    <div id="newposts">
+
+    </div>
+
+    <div id="oldposts">
+
+    </div>
+
+    {{#each mappedPosts as |post|}}
+    <div class="card mx-auto col-md-6 mt-5 bg-dark">
+        <div class="card-body">
+            <h5 class="mb-3 card-title text-light">{{post.title}}</h5>
+            <p class="mb-3 card-text text-white">{{post.content}}</p>
+        </div>
+    </div>
+    {{/each}}
+
+    <footer class="footer">
+        <div class="text-center">
+            <button id="button" type="button" data-state="add" class="btn btn-dark">+ New Post</button>
+        </div>
+    </footer>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
 <script src="/js/dashboard.js"></script>

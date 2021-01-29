@@ -21,7 +21,8 @@ Userlog.init(
         },
         login_date: {
             type: DataTypes.DATE,
-            allowNull: false
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
         },
         logout_date: {
             type: DataTypes.DATE
