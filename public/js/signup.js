@@ -5,6 +5,7 @@ $(document).ready(function () {
     const userName = $('#user_name');
     const password = $('#password');
     const passwordConf = $('#password_conf');
+    const loginBtnEl = $('#login')
 
     // validate password
     function valPassword(newUser) {
@@ -58,5 +59,10 @@ $(document).ready(function () {
         valPassword(newUser);
 
     });
+
+    loginBtnEl.on('click', (e) => {
+        e.preventDefault();
+        window.location = '/login';
+    })
 
 });

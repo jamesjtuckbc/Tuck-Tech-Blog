@@ -76,7 +76,6 @@ router.post('/signup', async (req, res) => {
 router.post('/post', checkAuth, async (req, res) => {
     try {
         const newPost = req.body;
-        console.log(newPost);
         newPost.user_id = req.session.user_id;
         newPost.date = Date.now();
         const createdPost = await Posts.create(newPost);

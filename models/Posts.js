@@ -32,6 +32,11 @@ Posts.init(
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
+        date_modifed: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
+        },
     },
     {
         sequelize,

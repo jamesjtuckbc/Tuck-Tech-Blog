@@ -13,7 +13,10 @@
     {{#each mappedPosts as |post|}}
     <div class="card mx-auto col-md-6 mt-5 bg-dark">
         <div class="card-body">
-            <h5 class="mb-3 card-title text-light">{{post.title}}</h5>
+            <div class="d-flex justify-content-between card-title mb-3">
+                    <h5 class="text-light">{{post.title}}</h5>
+                    <p class="text-light">{{formatDate post.date}}</p>
+            </div>
             <p class="mb-3 card-text text-white">{{post.content}}</p>
         </div>
     </div>

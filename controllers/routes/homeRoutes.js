@@ -1,14 +1,18 @@
 const router = require('express').Router();
 const checkAuth = require('../../utils/auth');
-const getPosts = require('./api/getPosts')
+const { getPosts, getAllPosts } = require('./api/getPosts')
 const { Userlog } = require('../../models');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const login = req.session.logged_in;
         const home = true;
         const dashboard = false;
-        res.render('homepage', { login, home, dashboard });
+        const posts = await getAllPosts();
+        // console.log(posts);
+        const mappedPosts = posts.map((post) => post.get({ plain: true}));
+        res.render('homepage', { login, home, dashboard, mappedPosts });
+        // res.render('homepage', { login, home, dashboard, posts });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -31,7 +35,7 @@ router.get('/login', (req, res) => {
     try {
         const login = req.session.logged_in;
         const home = false;
-        const dashboard = true;
+        const dashboard = false;
         res.render('login', { login, home, dashboard });
     } catch (err) {
         res.status(500).json(err);
