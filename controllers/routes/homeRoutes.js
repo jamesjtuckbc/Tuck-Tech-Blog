@@ -12,7 +12,6 @@ router.get('/', async (req, res) => {
         // console.log(posts);
         const mappedPosts = posts.map((post) => post.get({ plain: true}));
         res.render('homepage', { login, home, dashboard, mappedPosts });
-        // res.render('homepage', { login, home, dashboard, posts });
     } catch (err) {
         res.status(500).json(err);
     }

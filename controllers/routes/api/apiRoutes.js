@@ -10,7 +10,7 @@ router.post('/login', async (req, res) => {
             where: { user_name: req.body.user_name },
         });
         if (!user) {
-            res.status(404).json({ message: 'Login failed!' });
+            res.status(200).json({ message: 'Login failed!' });
             return;
         }
         const passVali = await bcrypt.compare(
@@ -18,7 +18,7 @@ router.post('/login', async (req, res) => {
             user.password
         );
         if (!passVali) {
-            res.status(404).json({ message: 'Login failed!' });
+            res.status(200).json({ message: 'Login failed!' });
             return;
         }
         await Users.update({

@@ -1,10 +1,8 @@
+const dateFormat = require("dateformat");
+dateFormat.masks.mine = 'yyyy-mm-dd hh:MM:ss';
+
 module.exports = {
     formatDate: (date) =>{
-        const formatted = 
-          date.getFullYear()
-          +'-'+date.getMonth()+1
-          +'-'+date.getDate();
-        
-        return formatted;  
+      return formatted = dateFormat(date, 'mine');
       }
 };

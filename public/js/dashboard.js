@@ -4,6 +4,7 @@ $(document).ready(function () {
   const addPost = $('#button');
   const newpostsDivEl = $('#newposts');
   const oldpostsDivEl = $('#oldposts');
+  const existingpostsDivEl = $('#existingposts')
   const newPost = `<form class="mx-auto col-md-6 mt-5"><div class="mb-3"><label for="newTitle" class="form-label">Title</label><input type="text" class="form-control" id="newTitle"></div><div class="mb-3"><label for="newContent" class="form-label">Content</label><textarea type="text" class="form-control" id="newContent" rows="4"></textarea></div><button id="beHeard" type="submit" class="btn btn-dark">Be Heard!</button></form>`;
   
 
@@ -54,6 +55,12 @@ $(document).ready(function () {
     } else {
       submitPost(post);
     }
+  });
+
+  existingpostsDivEl.on('click', '.postclick', (e) => {
+    e.preventDefault();
+    const id = $(e.currentTarget).attr('id');
+    console.log(id);
   });
 
 });

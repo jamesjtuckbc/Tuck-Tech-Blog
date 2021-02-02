@@ -2,10 +2,10 @@ $(document).ready(function () {
 
     // DOM Variables
     const signupBtnEl = $('#signup');
+    const loginBtnEl = $('#login')
     const userName = $('#user_name');
     const password = $('#password');
     const passwordConf = $('#password_conf');
-    const loginBtnEl = $('#login')
 
     // validate password
     function valPassword(newUser) {

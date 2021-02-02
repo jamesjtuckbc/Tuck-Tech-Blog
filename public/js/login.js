@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
   // DOM Variables
+  const signupBtnEl = $('#signup');
   const loginBtnEl = $('#login');
   const userName = $('#user_name');
   const password = $('#password');
@@ -15,6 +16,8 @@ $(document).ready(function () {
 
       if (result.message === 'Login Successful!') {
         window.location = '/dashboard';
+      } else if (result.message === 'Login failed!') {
+        alert('Login Failed');
       } else {
         window.location = '/login';
       }
@@ -33,6 +36,11 @@ $(document).ready(function () {
     }
 
     loginUser(userData);
+  });
+
+  signupBtnEl.on('click', (e) => {
+    e.preventDefault();
+    window.location = '/signup';
   });
 
 });
